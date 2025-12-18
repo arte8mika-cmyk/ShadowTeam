@@ -1,0 +1,84 @@
+:root {
+    --bg-black: #050507;
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.4);
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+body { background: var(--bg-black); color: #fff; height: 100vh; overflow: hidden; }
+
+/* Солидный фон */
+.bg-wrapper { position: fixed; inset: 0; z-index: -1; background: radial-gradient(circle at center, #0a0a0f 0%, #050507 100%); }
+.glow-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.15; }
+.orb-1 { width: 600px; height: 600px; background: var(--accent); top: -20%; left: -10%; }
+.orb-2 { width: 500px; height: 500px; background: #9d50bb; bottom: -10%; right: -10%; }
+
+.app-container { display: flex; width: 100%; height: 100vh; padding: 25px; gap: 25px; }
+
+/* Sidebar */
+.sidebar { width: 100px; background: var(--glass); backdrop-filter: blur(50px); border: 1px solid var(--border); border-radius: 30px; display: flex; flex-direction: column; align-items: center; padding: 40px 0; }
+.logo-box { width: 50px; height: 50px; background: var(--accent); border-radius: 16px; display: flex; justify-content: center; align-items: center; font-weight: 900; box-shadow: 0 0 25px var(--accent-glow); margin-bottom: 50px; }
+.nav-menu { display: flex; flex-direction: column; gap: 25px; }
+.nav-item { background: transparent; border: none; color: #555; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 5px; transition: 0.3s; }
+.nav-item span { font-size: 22px; }
+.nav-item label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.nav-item.active, .nav-item:hover { color: #fff; transform: scale(1.1); }
+
+/* Main Area */
+.main-content { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.header { display: flex; justify-content: space-between; align-items: center; background: var(--glass); backdrop-filter: blur(50px); padding: 20px 40px; border-radius: 30px; border: 1px solid var(--border); }
+.status-online { font-size: 12px; color: #00ff88; margin-top: 5px; }
+.profile-pill { display: flex; align-items: center; gap: 15px; background: rgba(255,255,255,0.03); padding: 8px 20px; border-radius: 100px; border: 1px solid var(--border); }
+
+/* Pages & Sections */
+.view-port { flex: 1; overflow-y: auto; padding-right: 5px; }
+.page { display: none; animation: fadeIn 0.4s ease; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Hero Card */
+.hero-banner { background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(0,0,0,0) 100%); padding: 50px; border-radius: 35px; border: 1px solid var(--border); margin-bottom: 25px; }
+.hero-banner h1 { font-size: 32px; margin-bottom: 10px; }
+.lvl-progress { margin-top: 25px; }
+.progress-bar { height: 10px; background: rgba(255,255,255,0.05); border-radius: 20px; overflow: hidden; }
+.fill { height: 100%; background: var(--accent); box-shadow: 0 0 20px var(--accent-glow); }
+.progress-info { display: flex; justify-content: space-between; font-size: 12px; margin-top: 8px; color: #777; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stat-card { background: var(--glass); padding: 30px; border-radius: 25px; border: 1px solid var(--border); text-align: center; }
+.stat-card h3 { font-size: 28px; color: var(--accent); margin-bottom: 5px; }
+
+/* Чат */
+.chat-container { background: var(--glass); border-radius: 30px; border: 1px solid var(--border); height: 500px; display: flex; flex-direction: column; }
+.chat-messages { flex: 1; padding: 30px; overflow-y: auto; font-size: 14px; }
+.msg.system { text-align: center; color: var(--accent); margin-bottom: 20px; opacity: 0.7; }
+.chat-input-zone { padding: 25px; display: flex; gap: 15px; border-top: 1px solid var(--border); }
+.chat-input-zone input { flex: 1; background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 15px; border-radius: 15px; color: #fff; outline: none; }
+.chat-input-zone button { background: #fff; color: #000; border: none; padding: 0 25px; border-radius: 15px; font-weight: 800; cursor: pointer; }
+
+/* Мануалы */
+.manuals-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+.manual-card { background: var(--glass); padding: 30px; border-radius: 25px; border: 1px solid var(--border); text-decoration: none; color: #fff; transition: 0.3s; position: relative; overflow: hidden; }
+.manual-card:hover { transform: translateY(-5px); border-color: var(--accent); background: rgba(99,102,241,0.05); }
+.m-tag { position: absolute; top: 15px; right: 15px; font-size: 10px; font-weight: 800; background: #ff4757; padding: 4px 10px; border-radius: 8px; }
+.m-tag.grey { background: #555; }
+.m-tag.blue { background: var(--accent); }
+.manual-card h4 { margin-top: 10px; margin-bottom: 10px; }
+.manual-card p { font-size: 13px; color: #888; line-height: 1.5; }
+
+/* Сервисы */
+.service-item { display: flex; align-items: center; background: var(--glass); padding: 20px; border-radius: 20px; border: 1px solid var(--border); margin-bottom: 15px; }
+.s-icon { font-size: 30px; margin-right: 20px; }
+.s-btn { margin-left: auto; background: var(--accent); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 12px; font-weight: 700; font-size: 13px; }
+
+/* Настройки */
+.settings-card { max-width: 450px; background: var(--glass); padding: 40px; border-radius: 30px; border: 1px solid var(--border); }
+.form-group { margin-top: 25px; display: flex; flex-direction: column; gap: 15px; }
+.form-group input { background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: 15px; border-radius: 15px; color: #fff; }
+.form-group button { background: var(--accent); color: #fff; border: none; padding: 15px; border-radius: 15px; font-weight: 800; cursor: pointer; }
+.ip-info { margin-top: 30px; font-size: 12px; color: #555; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
