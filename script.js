@@ -81,3 +81,31 @@ function sendChatMessage() {
 }
 
 window.onload = initSession;
+
+
+
+
+app.get('/get-my-profile', async (req, res) => {
+    try {
+        // 1. Определяем IP (с учетом прокси, если сайт на хостинге)
+        const userIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+
+        // 2. Ищем пользователя в БД по этому IP
+        const result = await pool.query('SELECT * FROM users WHERE last_ip = $1', [userIp]);
+
+        if (result.rows.length === 0) {
+            return res.status(404).json({ message: "Профиль не найден" });
+        }
+
+        // 3. Отправляем данные (кроме секретных!)
+        const user = result.rows[0];
+        res.json({
+            id: user.id,
+            ip: user.last_ip,
+            registered: user.created_at
+        });
+    } catch (err) {
+        res.status(500).send('Ошибка сервера');
+    }
+
+});
