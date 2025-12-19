@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHADOW TEAM | Private Ecosystem</title>
+    <title>SHADOW TEAM | Private System</title>
     <link rel="stylesheet" href="style.css">
     <link href="fonts.googleapis.com" rel="stylesheet">
 </head>
@@ -26,6 +26,7 @@
                 <button class="nav-item" onclick="switchView(this, 'manuals')"><span>📖</span><label>Мануалы</label></button>
                 <button class="nav-item" onclick="switchView(this, 'services')"><span>💎</span><label>Сервисы</label></button>
                 <button class="nav-item" onclick="switchView(this, 'settings')"><span>⚙️</span><label>Настройки</label></button>
+                <button class="nav-item" onclick="switchView(this, 'account')"><span>⚙️</span><label>Аккаунт</label></button>
             </nav>
         </aside>
 
@@ -146,13 +147,85 @@
                             <p>Ваш IP: <span id="user-ip">...</span></p>
                             <p>Авторизация: <span style="color: #00ff88;">Успешно по IP</span></p>
                                 <p id="user-info">Загрузка данных...</p>
-    <div id="user-stats"></div>
-                            <script src="app.js"></script
-                         >
-                            
+                            <p1>|--------------------------------------------------------------------------------------------------|</p1>
+                            <button class="manual-card" onclick="switchView(this, 'account')">Нет аккаунта? зарегестрироваться!</button>
+                            <p1>|--------------------------------------------------------------------------------------------------|</p1>
+                            <button class="manual-card" onclick="switchView(this, 'avto')">Уже есть аккаунт? войти!</button>
+                            <p1>|--------------------------------------------------------------------------------------------------|</p1>
+                            <div id="user-stats"></div>
+                            <script src="app.js"></script>
                         </div>
                     </div>
                 </section>
+
+                <section id="account" class="page">
+                    <div class="settings-card">
+                        <h3>Регистрация</h3>
+                        <div class="form-group">
+                            <input type="text" id="input-nick" placeholder="Введите ник...">
+                            <input type="text" id="input-nick" placeholder="Введите пароль...">
+                            <input type="text" id="input-nick" placeholder="Повторите пароль...">
+                            <button onclick="updateNickname()">Создать аккаунт</button>
+                        </div>
+                        <div class="ip-info">
+                            <p>Ваш IP: <span id="user-ip">...</span></p>
+                            <p>Авторизация: <span style="color: #00ff88;">Успешно по IP</span></p>
+                                <p id="user-info">Загрузка данных...</p>
+                            <p1>|--------------------------------------------------------------------------------------------------|</p1>
+                            <button class="manual-card" onclick="switchView(this, 'avto')">Уже есть аккаунт? войти!</button>
+                            <p1>|--------------------------------------------------------------------------------------------------|</p1>
+                            <div id="user-stats"></div>
+                            <script src="app.js"></script>
+                            
+                <section id="avto" class="page">
+                    <div class="settings-card">
+                        <h3>Войти в аккаунт</h3>
+                        <div class="form-group">
+                            <input type="text" id="input-nick" placeholder="Введите ник...">
+                            <input type="text" id="input-nick" placeholder="Введите пароль...">                            
+                            <button onclick="updateNickname()">Войти</button>
+                        </div>
+                        <div class="ip-info">
+                            <p>Ваш IP: <span id="user-ip">...</span></p>
+                            <p>Авторизация: <span style="color: #00ff88;">Успешно по IP</span></p>
+                                <p id="user-info">Загрузка данных...</p>
+                            <p1>|--------------------------------------------------------------------------------------------------|</p1>
+                            <button class="manual-card" onclick="switchView(this, 'account')">Нет аккаунта? зарегестрироваться!</button>
+                            <p1>|--------------------------------------------------------------------------------------------------|</p1>
+                            <div id="user-stats"></div>
+                            <script src="app.js"></script>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+
+
+
+
+
+
             </div>
         </main>
     </div>
@@ -160,16 +233,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
